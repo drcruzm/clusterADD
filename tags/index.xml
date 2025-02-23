@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Dr.Cruz</title>
+    <link>http://localhost:4321/tags/</link>
+    <description>Recent content in Tags on Dr.Cruz</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:4321/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cluster_P1</title>
+      <link>http://localhost:4321/tags/cluster_p1/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/cluster_p1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>http://localhost:4321/tags/markdown/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>R Markdown</title>
+      <link>http://localhost:4321/tags/r-markdown/</link>
+      <pubDate>Fri, 21 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plot</title>
+      <link>http://localhost:4321/tags/plot/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <guid>http://localhost:4321/tags/plot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Regression</title>
+      <link>http://localhost:4321/tags/regression/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <guid>http://localhost:4321/tags/regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:4321/tags/tutorial/</link>
+      <pubDate>Wed, 14 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blogdown</title>
+      <link>http://localhost:4321/tags/blogdown/</link>
+      <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/tags/blogdown/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
