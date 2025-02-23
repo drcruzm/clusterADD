@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cluster-Final | Dr.Cruz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/post/">Post</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/post/2025/02/21/cluster1">Clusters</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Cluster-Final</span></h1>
+<h2 class="author">Entrega Final</h2>
+<h2 class="date">2025/02/25</h2>
+</div>
+
+<main>
+<h2 id="codigo-ok">Codigo OK</h2>
+<pre><code class="language-r">library(dplyr)
+</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: 'dplyr'
+</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+<pre><code class="language-r">library(factoextra)
+</code></pre>
+<pre><code>## Warning: package 'factoextra' was built under R version 4.4.2
+</code></pre>
+<pre><code>## Cargando paquete requerido: ggplot2
+</code></pre>
+<pre><code>## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+</code></pre>
+<h2 id="font-colord9d617realizar-el-clustering-con-k-means-cargar-el-dataset-font"><font color="#D9D617">Realizar el clustering con k-means Cargar el dataset </font></h2>
+<pre><code class="language-r">data &lt;- read.csv(&quot;USA_cars_datasets.csv&quot;)
+</code></pre>
+<h3 id="2-seleccionar-variables-numéricas-para-el-clustering">2. Seleccionar variables numéricas para el clustering</h3>
+<p>las columnas relevantes son &lsquo;price&rsquo;, &lsquo;mileage&rsquo;, &lsquo;year&rsquo;, etc.</p>
+<pre><code class="language-r">data_num &lt;- data[, c(&quot;price&quot;, &quot;mileage&quot;, &quot;year&quot;)] 
+</code></pre>
+<h2 id="eliminar-filas-con-ceros-en-price-mileage-o-year">Eliminar filas con ceros en Price, mileage o year</h2>
+<pre><code class="language-r">datos_filtrados &lt;- data_num  %&gt;%
+  filter(price &gt; 0, mileage &gt; 0, year &gt; 0, price &gt;= 2000, year &gt;= 2015, price &lt; 60000, mileage &lt; 150000)
+</code></pre>
+<h3 id="3-normalizar-las-variables-restar-la-media-y-dividir-por-la-desviación-estándar">3. Normalizar las variables (restar la media y dividir por la desviación estándar)</h3>
+<pre><code class="language-r">data_scaled &lt;- scale(data_num)
+</code></pre>
+<pre><code class="language-r"># 4. Determinar el número óptimo de clusters con el método del codo
+fviz_nbclust(data_scaled, kmeans, method = &quot;wss&quot;) +
+  labs(title = &quot;Método del Codo para Determinar k&quot;)
+</code></pre>
+<img src="/post/2025/02/25/cluster-final/index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<h3 id="supongamos-que-elegimos-k--3-después-de-ver-la-gráfica-del-codo">Supongamos que elegimos k = 3 después de ver la gráfica del codo</h3>
+<pre><code class="language-r">set.seed(123)  # Para reproducibilidad
+km &lt;- kmeans(data_scaled, centers = 3, nstart = 25)  # nstart mejora la estabilidad
+</code></pre>
+<h1 id="6-visualizar-los-clusters-con-factoextra">6. Visualizar los clusters con factoextra</h1>
+<pre><code class="language-r">fviz_cluster(km, data = data_scaled, geom = &quot;point&quot;, 
+             main = &quot;Clusters de K-means con PCA&quot;) +
+  theme_minimal()
+</code></pre>
+<img src="/post/2025/02/25/cluster-final/index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+
+</main>
+
+  <footer>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/math-code.min.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/katex/dist/katex.min.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/render-katex.js" defer></script>
+
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
+
+  
+  <hr/>
+  © <a href="https://yihui.org">Dr. Victor Cruz</a> 2024 &ndash; 2025 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+
